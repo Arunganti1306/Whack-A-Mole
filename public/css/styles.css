@@ -61,10 +61,11 @@ header {
     position: relative;
 }
 
-.mole {
+.mole, .snake {
     width: 100%;
     height: 100%;
     display: none;
+    position: absolute;
 }
 
 .visible {

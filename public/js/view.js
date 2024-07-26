@@ -15,7 +15,11 @@ class GameView {
             const mole = document.createElement('img');
             mole.src = 'public/images/mole.jpg';
             mole.className = 'mole';
+            const snake = document.createElement('img');
+            snake.src = 'public/images/snake.jpg';
+            snake.className = 'snake';
             block.appendChild(mole);
+            block.appendChild(snake);
             this.gameBoard.appendChild(block);
             this.blocks.push(block);
         }
@@ -26,20 +30,30 @@ class GameView {
     }
 
     updateTime(time) {
-        this.timer.textContent = time;
+        this.timer.innerHTML = `<b>Timer left:</b><br>${time}`;
     }
 
-    showMole(blockId) {
-        this.blocks[blockId].querySelector('.mole').classList.add('visible');
-    }
-
-    hideMole(blockId) {
-        this.blocks[blockId].querySelector('.mole').classList.remove('visible');
+    updateBlock(blockId, type, show = true) {
+        if (blockId !== null) {
+            const block = this.blocks[blockId];
+            const element = block.querySelector(`.${type}`);
+            if (show) {
+                element.classList.add('visible');
+            } else {
+                element.classList.remove('visible');
+            }
+        } else {
+            this.blocks.forEach(block => {
+                const element = block.querySelector(`.${type}`);
+                element.classList.remove('visible');
+            });
+        }
     }
 
     resetBoard() {
         this.blocks.forEach(block => {
-            this.hideMole(block.dataset.id);
+            this.updateBlock(block.dataset.id, 'mole', false);
+            this.updateBlock(block.dataset.id, 'snake', false);
         });
     }
 
