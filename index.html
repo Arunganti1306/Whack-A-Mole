@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whac-a-Mole Game</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header-container">
+            <!-- Header Part -->
+            <header>
+                <h1>Welcome to Whack-a-Mole</h1>
+                <div id="score-counter">Let's Go, your total score is 0</div>
+                <button id="start-button">Start Game!</button>
+            </header>
+
+            <!-- Timer adjacent to the header -->
+            <div id="timer">Time Left: <br> 30</div>
+        </div>
+        
+        <!-- Game Board Part -->
+        <div id="game-board"></div>
+    </div>
+    <script src="models/gameModel.js"></script>
+    <script src="controllers/gameController.js"></script>
+    <script src="public/js/view.js"></script>
+    <script src="public/js/main.js"></script>
+</body>
+</html>
